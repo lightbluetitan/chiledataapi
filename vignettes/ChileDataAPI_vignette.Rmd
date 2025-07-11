@@ -1,8 +1,8 @@
 ---
-title: "ChileDataAPI: Access Chilean Economic, Demographic, Environmental, and Geopolitical Data via RESTful APIs and Curated Datasets"
+title: "ChileDataAPI: Access Chilean Data via APIs and Curated Datasets"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{ChileDataAPI: Access Chilean Economic, Demographic, Environmental, and Geopolitical Data via RESTful APIs and Curated Datasets}
+  %\VignetteIndexEntry{ChileDataAPI: Access Chilean Data via APIs and Curated Datasets}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

@@ -1,4 +1,4 @@
-# ChileDataAPI - Access Chilean Economic, Demographic, Environmental, and Geopolitical Data via RESTful APIs and Curated Datasets
+# ChileDataAPI - Access Chilean Data via APIs and Curated Datasets
 # Version 0.1.0
 # Copyright (C) 2025 Renzo Caceres Rossi
 #

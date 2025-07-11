@@ -1,4 +1,4 @@
-# ChileDataAPI - Access Chilean Economic, Demographic, Environmental, and Geopolitical Data via RESTful APIs and Curated Datasets
+# ChileDataAPI - Access Chilean Data via APIs and Curated Datasets
 # Version 0.1.0
 # Copyright (C) 2025 Renzo Caceres Rossi
 #
@@ -16,15 +16,15 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-#' ChileDataAPI: Access Chilean Economic, Demographic, Environmental, and Geopolitical Data via RESTful APIs and Curated Datasets
+#' ChileDataAPI: Access Chilean Data via APIs and Curated Datasets
 #'
 #' \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 #'
-#' Access Chilean Economic, Demographic, Environmental, and Geopolitical Data via RESTful APIs and Curated Datasets.
+#' Access Chilean Data via APIs and Curated Datasets.
 #'
 #' @name ChileDataAPI
 #' @aliases ChileDataAPI-package
-#' @title ChileDataAPI: Access Chilean Economic, Demographic, Environmental, and Geopolitical Data via RESTful APIs and Curated Datasets
+#' @title ChileDataAPI: Access Chilean Data via APIs and Curated Datasets
 #' @description {
 #' This package provides functions to access data from the 'FINDIC API' and the 'REST Countries API',related to Chile's financial indicators, international country information, additionally, the package includes curated datasets related to Chile.
 #' }

@@ -1,6 +1,6 @@
 Package: ChileDataAPI
 Type: Package
-Title: Access Chilean Economic, Demographic, Environmental, and Geopolitical Data via RESTful APIs and Curated Datasets
+Title: Access Chilean Data via APIs and Curated Datasets
 Version: 0.1.0
 Maintainer: Renzo Caceres Rossi <arenzocaceresrossi@gmail.com>
 Description: Provides functions to access data from the 'FINDIC API' and the 'REST Countries API',
