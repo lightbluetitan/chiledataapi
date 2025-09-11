@@ -1,5 +1,5 @@
 # ChileDataAPI - Access Chilean Data via APIs and Curated Datasets
-# Version 0.1.0
+# Version 0.2.0
 # Copyright (C) 2025 Renzo Caceres Rossi
 #
 # This program is free software: you can redistribute it and/or modify
@@ -48,8 +48,39 @@ utils::globalVariables(c(
   # Variables of the get_chile_yen function
   "fecha","valor",
 
-  # Variables of the get_country_info function
-  "name.common", "name.official", "capital", "region", "subregion", "population", "area", "languages"
+  # Variables of the get_country_info_cl function
+  "name_common", "name_official", "region", "subregion", "capital", "area", "population", "languages",
+
+  # Variables of the get_chile_holidays function
+  "date","local_name","name",
+
+  # Variables of the get_chile_child_mortality function
+  "indicator","country","year","value",
+
+  # Variables of the get_chile_cpi function
+  "indicator","country","year","value",
+
+  # Variables of the get_chile_energy_use function
+  "indicator","country","year","value",
+
+  # Variables of the get_chile_gdp function
+  "indicator","country","year","value","value_label",
+
+  # Variables of the get_chile_hospital_beds function
+  "indicator","country","year","value",
+
+  # Variables of the get_chile_life_expectancy function
+  "indicator","country","year","value",
+
+  # Variables of the get_chile_literacy_rate function
+  "indicator","country","year","value",
+
+  # Variables of the get_chile_population function
+  "indicator","country","year","value","value_label",
+
+  # Variables of the get_chile_unemployment function
+  "indicator","country","year","value"
+
 
 
 ))

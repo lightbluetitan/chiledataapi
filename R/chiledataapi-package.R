@@ -1,5 +1,5 @@
 # ChileDataAPI - Access Chilean Data via APIs and Curated Datasets
-# Version 0.1.0
+# Version 0.2.0
 # Copyright (C) 2025 Renzo Caceres Rossi
 #
 # This program is free software: you can redistribute it and/or modify
@@ -26,7 +26,7 @@
 #' @aliases ChileDataAPI-package
 #' @title ChileDataAPI: Access Chilean Data via APIs and Curated Datasets
 #' @description {
-#' This package provides functions to access data from the 'FINDIC API' and the 'REST Countries API',related to Chile's financial indicators, international country information, additionally, the package includes curated datasets related to Chile.
+#' This package provides functions to access data from public RESTful APIs including 'FINDIC API', 'REST Countries API', 'World Bank API', and 'Nager.Date', retrieving real-time or historical data related to Chile such as financial indicators, holidays, international demographic and geopolitical indicators, and more. Additionally, the package includes curated datasets related to Chile, covering topics such as human rights violations during the Pinochet regime, electoral data, census samples, health surveys, seismic events, territorial codes, and environmental measurements..
 #' }
 #' @seealso {
 #' Useful links:

@@ -22,9 +22,13 @@ library(dplyr)
 
 # Introduction
 
-The `ChileDataAPI` package provides a unified interface to access open data from the *FINDIC API* and the *REST Countries API*, with a focus on Chile. It allows users to easily retrieve up-to-date time series data on financial indicators such as the **UF, UTM, Dollar, Euro, Yen, Copper price per pound, Bitcoin, and the IPSA index**, as well as international metadata on countries via standardized API calls.
+The `ChileDataAPI` package provides a unified interface to access open data from multiple public RESTful APIs, including the *FINDIC API*, the *REST Countries API*, the *World Bank API*, and *Nager.Date*. With a focus on Chile, the package enables users to retrieve real-time or historical data such as financial indicators (**UF, UTM, Dollar, Euro, Yen, Copper price per pound, Bitcoin, IPSA index**), holidays, and international demographic and geopolitical information.  
 
-All API-based functions return data as tidy tibble objects, making them ready for immediate use in data pipelines. The financial indicator functions, such as `get_chile_dollar()`, `get_chile_uf()`, and `get_chile_bitcoin()`, provide real-time series of daily or monthly values, with each row representing a timestamped observation. This makes `ChileDataAPI` a valuable tool for working with economic time series data in a reproducible manner.
+In addition to API-based data retrieval, `ChileDataAPI` includes a curated collection of datasets that cover diverse aspects of Chilean society and environment, such as human rights violations during the Pinochet regime, electoral data, census samples, health surveys, seismic events, territorial codes, and environmental measurements.  
+
+All API-based functions return data as tidy tibble objects, making them ready for immediate use in data pipelines. For example, the financial indicator functions `get_chile_dollar()`, `get_chile_uf()`, and `get_chile_bitcoin()` provide reproducible time series of daily or monthly values, where each row corresponds to a timestamped observation.  
+
+By combining high-quality curated datasets with open APIs, `ChileDataAPI` offers a comprehensive toolkit for research and analysis related to Chile, supporting work in economics, politics, demographics, and environmental studies.
 
 In addition to API-access functions, the package includes a collection of curated datasets related to *Chile*, covering diverse topics such as:
 
@@ -47,7 +51,8 @@ In addition to API-access functions, the package includes a collection of curate
 
 ## Functions for ChileDataAPI
 
-The `ChileDataAPI` package provides several core functions to access real-time and structured information about Chile from public APIs such as [FINDIC](https://findic.cl/) and [REST Countries](https://restcountries.com/). Below is a list of the main functions included in the package:
+The `ChileDataAPI` package provides several core functions to access real-time and structured information about Chile from public APIs such as [FINDIC](https://findic.cl/), [REST Countries](https://restcountries.com/), the [World Bank API](https://datahelpdesk.worldbank.org/knowledgebase/articles/889392), and [Nager.Date](https://date.nager.at/Api). Below is a list of the main functions included in the package:
+
 
 
 - `get_chile_bitcoin()`: Retrieves the daily Bitcoin price in Chilean Pesos over the last month.
@@ -66,12 +71,37 @@ The `ChileDataAPI` package provides several core functions to access real-time a
 
 - `get_chile_yen()`: Provides the exchange rate of the Japanese Yen in CLP.
 
-- `get_country_info(name)`: Get essential information about Chile or any other country by its full name
-Example: *get_country_info("Chile")*,*get_country_info("chile")*,*get_country_info("Peru")*
+- `get_country_info_cl()`: Get essential information about Chile or any other country by its full name
+
+- `get_chile_holidays()`: Get official public holidays in chile for a given year, e.g., `get_chile_holidays(2025)`. 
+
+- `get_chile_child_mortality()`: Get Chile’s Under-5 Mortality Rate data from the World Bank.
+
+- `get_chile_cpi()`: Get Chile’s Consumer Price Index (2010 = 100) data from the World Bank.
+
+- `get_chile_energy_use()`: Get Chile’s Energy Use (kg of oil equivalent per capita) data from the World Bank. 
+
+- `get_chile_gdp()`: Get Chile’s GDP (current US$) data from the World Bank.
+
+- `get_chile_hospital_beds()`: Get Chile’s Hospital Beds (per 1,000 people) data from the World Bank.
+
+- `get_chile_life_expectancy()`: Get Chile’s Life Expectancy at Birth data from the World Bank. 
+
+- `get_chile_literacy_rate()`: Get Chile’s Adult Literacy Rate data from the World Bank.
+
+- `get_chile_population()`: Get Chile’s Total Population data from the World Bank.
+
+- `get_chile_unemployment()`: Get Chile’s Total Unemployment Rate data from the World Bank.
 
 - `view_datasets_ChileDataAPI()`: Lists all curated datasets included in the `ChileDataAPI` package
 
-These functions return real-time data in tidy `tibble` format and represent **time series** that are updated daily or monthly depending on the source.
+
+These functions return real-time data in tidy `tibble` format and represent **time series** that are updated daily or monthly depending on the source.  
+The functions powered by the [FINDIC](https://findic.cl/) endpoints provide economic time series such as the **UF, UTM, Dollar, Euro, Yen, Copper price per pound, Bitcoin, and the IPSA index**.  
+
+In addition, functions connected to the [World Bank API](https://datahelpdesk.worldbank.org/knowledgebase/articles/889392) supply structured information on **macroeconomic indicators (GDP, CPI, unemployment, energy use, hospital beds)**, **population trends**, **life expectancy**, **literacy rates**, and other development indicators for Chile.  
+
+All outputs are delivered as tidy `tibble` objects, making them ready for immediate integration into reproducible analytical workflows.
 
 These functions allow users to access high-quality and structured information on `Chile`, which can be combined with tools like `dplyr`, `tidyr`, and `ggplot2` to support a wide range of data analysis and visualization tasks. In the following sections, you’ll find examples on how to work with `ChileDataAPI` in practical scenarios.
 
@@ -114,6 +144,29 @@ chile_euro_price <- head(get_chile_euro(),n=10)
 
 print(chile_euro_price)
 
+
+```
+
+
+### Chile's GDP (Current US$) from World Bank 2022 - 2017
+
+```{r chile-gdp,echo = TRUE,message = FALSE,warning = FALSE,results = 'markup'}
+
+
+chile_gdp <- head(get_chile_gdp())
+
+print(chile_gdp)
+
+```
+
+
+### Chile's Life Expectancy at Birth from World Bank 2022 - 2017
+
+```{r chile-life-expectancy,echo = TRUE,message = FALSE,warning = FALSE,results = 'markup'}
+
+chile_life_expectancy <- head(get_chile_life_expectancy())
+
+print(chile_life_expectancy)
 
 ```
 
@@ -171,6 +224,14 @@ measured in millimeters, for Araucaria Araucana trees located in the Malleco reg
 
 ## Conclusion
 
-The `ChileDataAPI` package provides a robust set of tools to access open data about *Chile* through *RESTful APIs* and curated datasets. It includes functions to retrieve real-time financial indicators—such as the value of the dollar, euro, yen, copper, UF, UTM, and Bitcoin—via the *FINDIC API*, as well as international country information through the *REST Countries API*. Additionally, it offers preloaded datasets covering *Chile*’s recent history and socio-political context, including the 2017 census sample, the 2021 presidential election, public health survey data, territorial codes, seismic events, and records of human rights violations during the Pinochet regime.
+The `ChileDataAPI` package provides a robust set of tools to access open data about *Chile* through *RESTful APIs* and curated datasets. It includes functions to retrieve real-time financial indicators—such as the value of the dollar, euro, yen, copper, UF, UTM, and Bitcoin—via the *FINDIC API*, as well as international country information through the *REST Countries API*.  
+
+In addition, the package integrates with the *World Bank API* to deliver structured macroeconomic and demographic indicators, including **GDP, CPI, unemployment, energy use, hospital beds, population, life expectancy, and literacy rates**, enabling comprehensive socio-economic analysis.  
+Through the *Nager.Date API*, users can access official **Chilean public holidays**, which facilitates temporal alignment of datasets with policy, economic, and cultural events.  
+
+Beyond APIs, the package also offers curated datasets covering *Chile*’s recent history and socio-political context, including the **2017 census sample, the 2021 presidential election, public health survey data, territorial codes, seismic events, and records of human rights violations during the Pinochet regime**.  
+
+By combining real-time API calls with high-quality curated datasets, `ChileDataAPI` enables reproducible research and in-depth analysis of Chile’s economic, demographic, environmental, and political landscape.
+
 
 <div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>

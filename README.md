@@ -1,11 +1,8 @@
 # ChileDataAPI
 
-The `ChileDataAPI` package provides a unified interface to access open data from the *FINDIC API* and the *REST Countries API*, with a focus on Chile. 
-It allows users to easily retrieve up-to-date time series data on financial indicators such as the **UF, UTM, Dollar, Euro, Yen, Copper price per pound, Bitcoin, and the IPSA index**, as well as international metadata on countries via standardized API calls.
+The `ChileDataAPI` package provides a unified interface to access open data from multiple public RESTful APIs, including the *FINDIC API*, the *REST Countries API*, the *World Bank API*, and *Nager.Date*. With a focus on Chile, the package enables users to retrieve real-time or historical data such as financial indicators (**UF, UTM, Dollar, Euro, Yen, Copper price per pound, Bitcoin, IPSA index**), holidays, and international demographic and geopolitical information.  
 
-All API-based functions return data as tidy tibble objects, making them ready for immediate use in data pipelines.
-The financial indicator functions, such as `get_chile_dollar()`, `get_chile_uf()`, and `get_chile_bitcoin()`, provide real-time series of daily or monthly values, with each row representing a timestamped observation. 
-This makes `ChileDataAPI` a valuable tool for working with economic time series data in a reproducible manner.
+In addition to API-based data retrieval, `ChileDataAPI` includes a curated collection of datasets that cover diverse aspects of Chilean society and environment, such as human rights violations during the Pinochet regime, electoral data, census samples, health surveys, seismic events, territorial codes, and environmental measurements.  
 
 ## Installation
 
@@ -46,10 +43,30 @@ library(ChileDataAPI)
 
 - `get_chile_yen()`: Provides the exchange rate of the Japanese Yen in CLP.
 
-- `get_country_info(name)`: Get essential information about Chile or any other country by its full name
-Example: *get_country_info("Chile")*,*get_country_info("chile")*,*get_country_info("Peru")*
+- `get_country_info_cl()`: Get essential information about Chile or any other country by its full name
+
+- `get_chile_holidays()`: Get official public holidays in chile for a given year, e.g., `get_chile_holidays(2025)`. 
+
+- `get_chile_child_mortality()`: Get Chile’s Under-5 Mortality Rate data from the World Bank.
+
+- `get_chile_cpi()`: Get Chile’s Consumer Price Index (2010 = 100) data from the World Bank.
+
+- `get_chile_energy_use()`: Get Chile’s Energy Use (kg of oil equivalent per capita) data from the World Bank. 
+
+- `get_chile_gdp()`: Get Chile’s GDP (current US$) data from the World Bank.
+
+- `get_chile_hospital_beds()`: Get Chile’s Hospital Beds (per 1,000 people) data from the World Bank.
+
+- `get_chile_life_expectancy()`: Get Chile’s Life Expectancy at Birth data from the World Bank. 
+
+- `get_chile_literacy_rate()`: Get Chile’s Adult Literacy Rate data from the World Bank.
+
+- `get_chile_population()`: Get Chile’s Total Population data from the World Bank.
+
+- `get_chile_unemployment()`: Get Chile’s Total Unemployment Rate data from the World Bank.
 
 - `view_datasets_ChileDataAPI()`: Lists all curated datasets included in the `ChileDataAPI` package
+
 
 ## Dataset Suffixes
 
@@ -86,7 +103,7 @@ library(ChileDataAPI)
 
 # Selected, essential information about Chile
 
-get_country_info("Chile")
+get_country_info_cl()
 
 # Provides the exchange rate of the U.S. Dollar in CLP
 

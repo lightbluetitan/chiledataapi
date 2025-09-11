@@ -25,7 +25,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ChileDataAPI</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,6 +41,7 @@
 <li><a class="dropdown-item" href="../articles/ChileDataAPI_vignette.html">ChileDataAPI: Access Chilean Data via APIs and Curated Datasets</a></li>
   </ul>
 </li>
+<li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
 <li class="nav-item"><form class="form-inline" role="search">
@@ -84,20 +85,28 @@
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
 <p>The <code>ChileDataAPI</code> package provides a unified interface to
-access open data from the <em>FINDIC API</em> and the <em>REST Countries
-API</em>, with a focus on Chile. It allows users to easily retrieve
-up-to-date time series data on financial indicators such as the
-<strong>UF, UTM, Dollar, Euro, Yen, Copper price per pound, Bitcoin, and
-the IPSA index</strong>, as well as international metadata on countries
-via standardized API calls.</p>
+access open data from multiple public RESTful APIs, including the
+<em>FINDIC API</em>, the <em>REST Countries API</em>, the <em>World Bank
+API</em>, and <em>Nager.Date</em>. With a focus on Chile, the package
+enables users to retrieve real-time or historical data such as financial
+indicators (<strong>UF, UTM, Dollar, Euro, Yen, Copper price per pound,
+Bitcoin, IPSA index</strong>), holidays, and international demographic
+and geopolitical information.</p>
+<p>In addition to API-based data retrieval, <code>ChileDataAPI</code>
+includes a curated collection of datasets that cover diverse aspects of
+Chilean society and environment, such as human rights violations during
+the Pinochet regime, electoral data, census samples, health surveys,
+seismic events, territorial codes, and environmental measurements.</p>
 <p>All API-based functions return data as tidy tibble objects, making
-them ready for immediate use in data pipelines. The financial indicator
-functions, such as <code><a href="../reference/get_chile_dollar.html">get_chile_dollar()</a></code>,
-<code><a href="../reference/get_chile_uf.html">get_chile_uf()</a></code>, and <code><a href="../reference/get_chile_bitcoin.html">get_chile_bitcoin()</a></code>,
-provide real-time series of daily or monthly values, with each row
-representing a timestamped observation. This makes
-<code>ChileDataAPI</code> a valuable tool for working with economic time
-series data in a reproducible manner.</p>
+them ready for immediate use in data pipelines. For example, the
+financial indicator functions <code><a href="../reference/get_chile_dollar.html">get_chile_dollar()</a></code>,
+<code><a href="../reference/get_chile_uf.html">get_chile_uf()</a></code>, and <code><a href="../reference/get_chile_bitcoin.html">get_chile_bitcoin()</a></code>
+provide reproducible time series of daily or monthly values, where each
+row corresponds to a timestamped observation.</p>
+<p>By combining high-quality curated datasets with open APIs,
+<code>ChileDataAPI</code> offers a comprehensive toolkit for research
+and analysis related to Chile, supporting work in economics, politics,
+demographics, and environmental studies.</p>
 <p>In addition to API-access functions, the package includes a
 collection of curated datasets related to <em>Chile</em>, covering
 diverse topics such as:</p>
@@ -126,8 +135,9 @@ easy-to-use R package.</p>
 </h3>
 <p>The <code>ChileDataAPI</code> package provides several core functions
 to access real-time and structured information about Chile from public
-APIs such as <a href="https://findic.cl/" class="external-link">FINDIC</a> and <a href="https://restcountries.com/" class="external-link">REST Countries</a>. Below is a list of
-the main functions included in the package:</p>
+APIs such as <a href="https://findic.cl/" class="external-link">FINDIC</a>, <a href="https://restcountries.com/" class="external-link">REST Countries</a>, the <a href="https://datahelpdesk.worldbank.org/knowledgebase/articles/889392" class="external-link">World
+Bank API</a>, and <a href="https://date.nager.at/Api" class="external-link">Nager.Date</a>.
+Below is a list of the main functions included in the package:</p>
 <ul>
 <li><p><code><a href="../reference/get_chile_bitcoin.html">get_chile_bitcoin()</a></code>: Retrieves the daily Bitcoin
 price in Chilean Pesos over the last month.</p></li>
@@ -145,15 +155,48 @@ de Fomento (UF).</p></li>
 Unidad Tributaria Mensual (UTM).</p></li>
 <li><p><code><a href="../reference/get_chile_yen.html">get_chile_yen()</a></code>: Provides the exchange rate of the
 Japanese Yen in CLP.</p></li>
-<li><p><code>get_country_info(name)</code>: Get essential information
-about Chile or any other country by its full name Example:
-<em>get_country_info(“Chile”)</em>,<em>get_country_info(“chile”)</em>,<em>get_country_info(“Peru”)</em></p></li>
+<li><p><code><a href="../reference/get_country_info_cl.html">get_country_info_cl()</a></code>: Get essential information
+about Chile or any other country by its full name</p></li>
+<li><p><code><a href="../reference/get_chile_holidays.html">get_chile_holidays()</a></code>: Get official public holidays
+in chile for a given year, e.g.,
+<code>get_chile_holidays(2025)</code>.</p></li>
+<li><p><code><a href="../reference/get_chile_child_mortality.html">get_chile_child_mortality()</a></code>: Get Chile’s Under-5
+Mortality Rate data from the World Bank.</p></li>
+<li><p><code><a href="../reference/get_chile_cpi.html">get_chile_cpi()</a></code>: Get Chile’s Consumer Price Index
+(2010 = 100) data from the World Bank.</p></li>
+<li><p><code><a href="../reference/get_chile_energy_use.html">get_chile_energy_use()</a></code>: Get Chile’s Energy Use (kg
+of oil equivalent per capita) data from the World Bank.</p></li>
+<li><p><code><a href="../reference/get_chile_gdp.html">get_chile_gdp()</a></code>: Get Chile’s GDP (current US$) data
+from the World Bank.</p></li>
+<li><p><code><a href="../reference/get_chile_hospital_beds.html">get_chile_hospital_beds()</a></code>: Get Chile’s Hospital Beds
+(per 1,000 people) data from the World Bank.</p></li>
+<li><p><code><a href="../reference/get_chile_life_expectancy.html">get_chile_life_expectancy()</a></code>: Get Chile’s Life
+Expectancy at Birth data from the World Bank.</p></li>
+<li><p><code><a href="../reference/get_chile_literacy_rate.html">get_chile_literacy_rate()</a></code>: Get Chile’s Adult
+Literacy Rate data from the World Bank.</p></li>
+<li><p><code><a href="../reference/get_chile_population.html">get_chile_population()</a></code>: Get Chile’s Total Population
+data from the World Bank.</p></li>
+<li><p><code><a href="../reference/get_chile_unemployment.html">get_chile_unemployment()</a></code>: Get Chile’s Total
+Unemployment Rate data from the World Bank.</p></li>
 <li><p><code><a href="../reference/view_datasets_ChileDataAPI.html">view_datasets_ChileDataAPI()</a></code>: Lists all curated
 datasets included in the <code>ChileDataAPI</code> package</p></li>
 </ul>
 <p>These functions return real-time data in tidy <code>tibble</code>
 format and represent <strong>time series</strong> that are updated daily
-or monthly depending on the source.</p>
+or monthly depending on the source.<br>
+The functions powered by the <a href="https://findic.cl/" class="external-link">FINDIC</a>
+endpoints provide economic time series such as the <strong>UF, UTM,
+Dollar, Euro, Yen, Copper price per pound, Bitcoin, and the IPSA
+index</strong>.</p>
+<p>In addition, functions connected to the <a href="https://datahelpdesk.worldbank.org/knowledgebase/articles/889392" class="external-link">World
+Bank API</a> supply structured information on <strong>macroeconomic
+indicators (GDP, CPI, unemployment, energy use, hospital beds)</strong>,
+<strong>population trends</strong>, <strong>life expectancy</strong>,
+<strong>literacy rates</strong>, and other development indicators for
+Chile.</p>
+<p>All outputs are delivered as tidy <code>tibble</code> objects, making
+them ready for immediate integration into reproducible analytical
+workflows.</p>
 <p>These functions allow users to access high-quality and structured
 information on <code>Chile</code>, which can be combined with tools like
 <code>dplyr</code>, <code>tidyr</code>, and <code>ggplot2</code> to
@@ -172,16 +215,16 @@ following sections, you’ll find examples on how to work with
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 2</span></span></span>
 <span><span class="co">#&gt;    fecha      valor</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 2025-07-11  4.38</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 2025-07-10  4.46</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 2025-07-09  4.49</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 2025-07-08  4.52</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 2025-07-07  4.56</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 2025-07-04  4.59</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 2025-07-03  4.56</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 2025-07-02  4.56</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 2025-07-01  4.59</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 2025-06-30  4.64</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 2025-09-11  4.46</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 2025-09-10  4.46</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 2025-09-09  4.46</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 2025-09-08  4.46</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 2025-09-05  4.49</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 2025-09-04  4.5 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 2025-09-03  4.44</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 2025-09-02  4.46</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 2025-09-01  4.42</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 2025-08-29  4.38</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="get-exchange-rate-of-the-u-s--dollar-in-clp">Get exchange rate of the U.S. Dollar in CLP<a class="anchor" aria-label="anchor" href="#get-exchange-rate-of-the-u-s--dollar-in-clp"></a>
@@ -195,16 +238,16 @@ following sections, you’ll find examples on how to work with
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 2</span></span></span>
 <span><span class="co">#&gt;    fecha      valor</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 2025-07-11  950.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 2025-07-10  948.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 2025-07-09  945.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 2025-07-08  940.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 2025-07-07  932.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 2025-07-04  928.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 2025-07-03  927.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 2025-07-02  927.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 2025-07-01  933.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 2025-06-30  936.</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 2025-09-11  963.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 2025-09-10  966.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 2025-09-09  967.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 2025-09-08  965.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 2025-09-05  971.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 2025-09-04  969.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 2025-09-03  974.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 2025-09-02  968.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 2025-09-01  965.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 2025-08-29  967.</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="get-exchange-rate-of-the-euro-in-clp-">Get exchange rate of the Euro in CLP.<a class="anchor" aria-label="anchor" href="#get-exchange-rate-of-the-euro-in-clp-"></a>
@@ -218,21 +261,58 @@ following sections, you’ll find examples on how to work with
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 2</span></span></span>
 <span><span class="co">#&gt;    fecha      valor</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 2025-07-11 <span style="text-decoration: underline;">1</span>111.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 2025-07-10 <span style="text-decoration: underline;">1</span>111.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 2025-07-09 <span style="text-decoration: underline;">1</span>108.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 2025-07-08 <span style="text-decoration: underline;">1</span>101.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 2025-07-07 <span style="text-decoration: underline;">1</span>098.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 2025-07-04 <span style="text-decoration: underline;">1</span>090.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 2025-07-03 <span style="text-decoration: underline;">1</span>093.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 2025-07-02 <span style="text-decoration: underline;">1</span>091.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 2025-07-01 <span style="text-decoration: underline;">1</span>099.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 2025-06-30 <span style="text-decoration: underline;">1</span>094.</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 2025-09-11 <span style="text-decoration: underline;">1</span>127.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 2025-09-10 <span style="text-decoration: underline;">1</span>132.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 2025-09-09 <span style="text-decoration: underline;">1</span>135.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 2025-09-08 <span style="text-decoration: underline;">1</span>130.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 2025-09-05 <span style="text-decoration: underline;">1</span>131.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 2025-09-04 <span style="text-decoration: underline;">1</span>131.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 2025-09-03 <span style="text-decoration: underline;">1</span>133.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 2025-09-02 <span style="text-decoration: underline;">1</span>134.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 2025-09-01 <span style="text-decoration: underline;">1</span>129.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 2025-08-29 <span style="text-decoration: underline;">1</span>131.</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="chiles-gdp-current-us-from-world-bank-2022---2017">Chile’s GDP (Current US$) from World Bank 2022 - 2017<a class="anchor" aria-label="anchor" href="#chiles-gdp-current-us-from-world-bank-2022---2017"></a>
+</h4>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span></span>
+<span><span class="va">chile_gdp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="../reference/get_chile_gdp.html">get_chile_gdp</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">chile_gdp</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 5</span></span></span>
+<span><span class="co">#&gt;   indicator         country  year         value value_label    </span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> GDP (current US$) Chile    <span style="text-decoration: underline;">2</span>022 <span style="text-decoration: underline;">301</span>226<span style="text-decoration: underline;">575</span>540. 301,226,575,540</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> GDP (current US$) Chile    <span style="text-decoration: underline;">2</span>021 <span style="text-decoration: underline;">315</span>325<span style="text-decoration: underline;">547</span>162. 315,325,547,162</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> GDP (current US$) Chile    <span style="text-decoration: underline;">2</span>020 <span style="text-decoration: underline;">254</span>042<span style="text-decoration: underline;">159</span>309. 254,042,159,309</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> GDP (current US$) Chile    <span style="text-decoration: underline;">2</span>019 <span style="text-decoration: underline;">278</span>285<span style="text-decoration: underline;">058</span>719. 278,285,058,719</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> GDP (current US$) Chile    <span style="text-decoration: underline;">2</span>018 <span style="text-decoration: underline;">295</span>857<span style="text-decoration: underline;">562</span>992. 295,857,562,992</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> GDP (current US$) Chile    <span style="text-decoration: underline;">2</span>017 <span style="text-decoration: underline;">276</span>154<span style="text-decoration: underline;">259</span>981. 276,154,259,981</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="chiles-life-expectancy-at-birth-from-world-bank-2022---2017">Chile’s Life Expectancy at Birth from World Bank 2022 - 2017<a class="anchor" aria-label="anchor" href="#chiles-life-expectancy-at-birth-from-world-bank-2022---2017"></a>
+</h4>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">chile_life_expectancy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="../reference/get_chile_life_expectancy.html">get_chile_life_expectancy</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">chile_life_expectancy</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 4</span></span></span>
+<span><span class="co">#&gt;   indicator                               country  year value</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Life expectancy at birth, total (years) Chile    <span style="text-decoration: underline;">2</span>022  79.2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Life expectancy at birth, total (years) Chile    <span style="text-decoration: underline;">2</span>021  78.9</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Life expectancy at birth, total (years) Chile    <span style="text-decoration: underline;">2</span>020  79.3</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Life expectancy at birth, total (years) Chile    <span style="text-decoration: underline;">2</span>019  80.3</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Life expectancy at birth, total (years) Chile    <span style="text-decoration: underline;">2</span>018  80.6</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> Life expectancy at birth, total (years) Chile    <span style="text-decoration: underline;">2</span>017  80.6</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="systolic-blood-pressure-by-age-and-gender">Systolic Blood Pressure by Age and Gender<a class="anchor" aria-label="anchor" href="#systolic-blood-pressure-by-age-and-gender"></a>
 </h4>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Clean data: remove missing values from key variables</span></span>
 <span><span class="va">health_clean</span> <span class="op">&lt;-</span> <span class="va">chile_health_survey_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -298,11 +378,24 @@ and curated datasets. It includes functions to retrieve real-time
 financial indicators—such as the value of the dollar, euro, yen, copper,
 UF, UTM, and Bitcoin—via the <em>FINDIC API</em>, as well as
 international country information through the <em>REST Countries
-API</em>. Additionally, it offers preloaded datasets covering
+API</em>.</p>
+<p>In addition, the package integrates with the <em>World Bank API</em>
+to deliver structured macroeconomic and demographic indicators,
+including <strong>GDP, CPI, unemployment, energy use, hospital beds,
+population, life expectancy, and literacy rates</strong>, enabling
+comprehensive socio-economic analysis.<br>
+Through the <em>Nager.Date API</em>, users can access official
+<strong>Chilean public holidays</strong>, which facilitates temporal
+alignment of datasets with policy, economic, and cultural events.</p>
+<p>Beyond APIs, the package also offers curated datasets covering
 <em>Chile</em>’s recent history and socio-political context, including
-the 2017 census sample, the 2021 presidential election, public health
-survey data, territorial codes, seismic events, and records of human
-rights violations during the Pinochet regime.</p>
+the <strong>2017 census sample, the 2021 presidential election, public
+health survey data, territorial codes, seismic events, and records of
+human rights violations during the Pinochet regime</strong>.</p>
+<p>By combining real-time API calls with high-quality curated datasets,
+<code>ChileDataAPI</code> enables reproducible research and in-depth
+analysis of Chile’s economic, demographic, environmental, and political
+landscape.</p>
 <div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;">
 
 </div>

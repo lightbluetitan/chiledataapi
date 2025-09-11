@@ -16,8 +16,8 @@
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Access Chilean Data via APIs and Curated Datasets">
-<meta name="description" content="Provides functions to access data from the FINDIC API and the REST Countries API, related to Chiles financial indicators, international country information, and more. Additionally, the package includes curated datasets related to Chile, covering topics such as human rights violations during the Pinochet regime, electoral data, census samples, health surveys, seismic events, territorial codes, and environmental measurements. The package supports research and analysis focused on Chile by integrating open APIs with high-quality datasets from multiple domains. For more details on FINDIC, see &lt;https://findic.cl/&gt;, and for REST Countries', see &lt;https://restcountries.com/&gt;.">
-<meta property="og:description" content="Provides functions to access data from the FINDIC API and the REST Countries API, related to Chiles financial indicators, international country information, and more. Additionally, the package includes curated datasets related to Chile, covering topics such as human rights violations during the Pinochet regime, electoral data, census samples, health surveys, seismic events, territorial codes, and environmental measurements. The package supports research and analysis focused on Chile by integrating open APIs with high-quality datasets from multiple domains. For more details on FINDIC, see &lt;https://findic.cl/&gt;, and for REST Countries', see &lt;https://restcountries.com/&gt;.">
+<meta name="description" content="Provides functions to access data from public RESTful APIs including FINDIC API, REST Countries API, World Bank API, and Nager.Date, retrieving real-time or historical data related to Chile such as financial indicators, holidays, international demographic and geopolitical indicators, and more. Additionally, the package includes curated datasets related to Chile, covering topics such as human rights violations during the Pinochet regime, electoral data, census samples, health surveys, seismic events, territorial codes, and environmental measurements. The package supports research and analysis focused on Chile by integrating open APIs with high-quality datasets from multiple domains. For more information on the APIs, see: FINDIC &lt;https://findic.cl/&gt;, REST Countries &lt;https://restcountries.com/&gt;, World Bank API &lt;https://datahelpdesk.worldbank.org/knowledgebase/articles/889392&gt;, and Nager.Date &lt;https://date.nager.at/Api&gt;.">
+<meta property="og:description" content="Provides functions to access data from public RESTful APIs including FINDIC API, REST Countries API, World Bank API, and Nager.Date, retrieving real-time or historical data related to Chile such as financial indicators, holidays, international demographic and geopolitical indicators, and more. Additionally, the package includes curated datasets related to Chile, covering topics such as human rights violations during the Pinochet regime, electoral data, census samples, health surveys, seismic events, territorial codes, and environmental measurements. The package supports research and analysis focused on Chile by integrating open APIs with high-quality datasets from multiple domains. For more information on the APIs, see: FINDIC &lt;https://findic.cl/&gt;, REST Countries &lt;https://restcountries.com/&gt;, World Bank API &lt;https://datahelpdesk.worldbank.org/knowledgebase/articles/889392&gt;, and Nager.Date &lt;https://date.nager.at/Api&gt;.">
 <meta property="og:image" content="https://lightbluetitan.github.io/chiledataapi/logo.png">
 </head>
 <body>
@@ -28,7 +28,7 @@
 
     <a class="navbar-brand me-2" href="index.html">ChileDataAPI</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,6 +44,7 @@
 <li><a class="dropdown-item" href="articles/ChileDataAPI_vignette.html">ChileDataAPI: Access Chilean Data via APIs and Curated Datasets</a></li>
   </ul>
 </li>
+<li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
 <li class="nav-item"><form class="form-inline" role="search">
@@ -62,8 +63,8 @@
 <img src="logo.png" class="logo" alt=""><h1 id="chiledataapi">ChileDataAPI<a class="anchor" aria-label="anchor" href="#chiledataapi"></a>
 </h1>
 </div>
-<p>The <code>ChileDataAPI</code> package provides a unified interface to access open data from the <em>FINDIC API</em> and the <em>REST Countries API</em>, with a focus on Chile. It allows users to easily retrieve up-to-date time series data on financial indicators such as the <strong>UF, UTM, Dollar, Euro, Yen, Copper price per pound, Bitcoin, and the IPSA index</strong>, as well as international metadata on countries via standardized API calls.</p>
-<p>All API-based functions return data as tidy tibble objects, making them ready for immediate use in data pipelines. The financial indicator functions, such as <code><a href="reference/get_chile_dollar.html">get_chile_dollar()</a></code>, <code><a href="reference/get_chile_uf.html">get_chile_uf()</a></code>, and <code><a href="reference/get_chile_bitcoin.html">get_chile_bitcoin()</a></code>, provide real-time series of daily or monthly values, with each row representing a timestamped observation. This makes <code>ChileDataAPI</code> a valuable tool for working with economic time series data in a reproducible manner.</p>
+<p>The <code>ChileDataAPI</code> package provides a unified interface to access open data from multiple public RESTful APIs, including the <em>FINDIC API</em>, the <em>REST Countries API</em>, the <em>World Bank API</em>, and <em>Nager.Date</em>. With a focus on Chile, the package enables users to retrieve real-time or historical data such as financial indicators (<strong>UF, UTM, Dollar, Euro, Yen, Copper price per pound, Bitcoin, IPSA index</strong>), holidays, and international demographic and geopolitical information.</p>
+<p>In addition to API-based data retrieval, <code>ChileDataAPI</code> includes a curated collection of datasets that cover diverse aspects of Chilean society and environment, such as human rights violations during the Pinochet regime, electoral data, census samples, health surveys, seismic events, territorial codes, and environmental measurements.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -91,7 +92,17 @@
 <li><p><code><a href="reference/get_chile_uf.html">get_chile_uf()</a></code>: Returns daily values of the Unidad de Fomento (UF).</p></li>
 <li><p><code><a href="reference/get_chile_utm.html">get_chile_utm()</a></code>: Returns monthly values of the Unidad Tributaria Mensual (UTM).</p></li>
 <li><p><code><a href="reference/get_chile_yen.html">get_chile_yen()</a></code>: Provides the exchange rate of the Japanese Yen in CLP.</p></li>
-<li><p><code>get_country_info(name)</code>: Get essential information about Chile or any other country by its full name Example: <em>get_country_info(“Chile”)</em>,<em>get_country_info(“chile”)</em>,<em>get_country_info(“Peru”)</em></p></li>
+<li><p><code><a href="reference/get_country_info_cl.html">get_country_info_cl()</a></code>: Get essential information about Chile or any other country by its full name</p></li>
+<li><p><code><a href="reference/get_chile_holidays.html">get_chile_holidays()</a></code>: Get official public holidays in chile for a given year, e.g., <code>get_chile_holidays(2025)</code>.</p></li>
+<li><p><code><a href="reference/get_chile_child_mortality.html">get_chile_child_mortality()</a></code>: Get Chile’s Under-5 Mortality Rate data from the World Bank.</p></li>
+<li><p><code><a href="reference/get_chile_cpi.html">get_chile_cpi()</a></code>: Get Chile’s Consumer Price Index (2010 = 100) data from the World Bank.</p></li>
+<li><p><code><a href="reference/get_chile_energy_use.html">get_chile_energy_use()</a></code>: Get Chile’s Energy Use (kg of oil equivalent per capita) data from the World Bank.</p></li>
+<li><p><code><a href="reference/get_chile_gdp.html">get_chile_gdp()</a></code>: Get Chile’s GDP (current US$) data from the World Bank.</p></li>
+<li><p><code><a href="reference/get_chile_hospital_beds.html">get_chile_hospital_beds()</a></code>: Get Chile’s Hospital Beds (per 1,000 people) data from the World Bank.</p></li>
+<li><p><code><a href="reference/get_chile_life_expectancy.html">get_chile_life_expectancy()</a></code>: Get Chile’s Life Expectancy at Birth data from the World Bank.</p></li>
+<li><p><code><a href="reference/get_chile_literacy_rate.html">get_chile_literacy_rate()</a></code>: Get Chile’s Adult Literacy Rate data from the World Bank.</p></li>
+<li><p><code><a href="reference/get_chile_population.html">get_chile_population()</a></code>: Get Chile’s Total Population data from the World Bank.</p></li>
+<li><p><code><a href="reference/get_chile_unemployment.html">get_chile_unemployment()</a></code>: Get Chile’s Total Unemployment Rate data from the World Bank.</p></li>
 <li><p><code><a href="reference/view_datasets_ChileDataAPI.html">view_datasets_ChileDataAPI()</a></code>: Lists all curated datasets included in the <code>ChileDataAPI</code> package</p></li>
 </ul>
 </div>
@@ -127,7 +138,7 @@
 <span></span>
 <span><span class="co"># Selected, essential information about Chile</span></span>
 <span></span>
-<span><span class="fu"><a href="reference/get_country_info.html">get_country_info</a></span><span class="op">(</span><span class="st">"Chile"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/get_country_info_cl.html">get_country_info_cl</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Provides the exchange rate of the U.S. Dollar in CLP</span></span>
 <span></span>
@@ -153,6 +164,7 @@
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
+<li><a href="https://cloud.r-project.org/package=ChileDataAPI" class="external-link">View on CRAN</a></li>
 <li><a href="https://github.com/lightbluetitan/chiledataapi/" class="external-link">Browse source code</a></li>
 <li><a href="https://github.com/lightbluetitan/chiledataapi/issues" class="external-link">Report a bug</a></li>
 </ul>
