@@ -1,10 +1,5 @@
 # ChileDataAPI
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![CRAN status](https://www.r-pkg.org/badges/version/ChileDataAPI)](https://cran.r-project.org/package=ChileDataAPI)
-[![CRAN downloads](https://cranlogs.r-pkg.org/badges/ChileDataAPI)](https://cran.r-project.org/package=ChileDataAPI)
-[![CRAN total downloads](https://cranlogs.r-pkg.org/badges/grand-total/ChileDataAPI)](https://cran.r-project.org/package=ChileDataAPI)
-
 The `ChileDataAPI` package provides a unified interface to access open data from multiple public RESTful APIs, including the *FINDIC API*, the *World Bank API*, and *Nager.Date*. With a focus on Chile, the package enables users to retrieve real-time or historical data such as financial indicators (**UF, UTM, Dollar, Euro, Yen, Copper price per pound, Bitcoin, IPSA index**), and holidays.
 
 In addition to API-based data retrieval, `ChileDataAPI` includes a curated collection of datasets that cover diverse aspects of Chilean society and environment, such as human rights violations during the Pinochet regime, electoral data, census samples, health surveys, seismic events, territorial codes, and environmental measurements.  
@@ -48,7 +43,7 @@ library(ChileDataAPI)
 
 - `get_chile_yen()`: Provides the exchange rate of the Japanese Yen in CLP.
 
-- `get_chile_holidays()`: Get official public holidays in chile for a given year, e.g., `get_chile_holidays(2025)`. 
+- `get_chile_holidays()`: Get official public holidays in Chile for a given year, e.g., `get_chile_holidays(2025)`. 
 
 - `get_chile_child_mortality()`: Get Chile’s Under-5 Mortality Rate data from the World Bank.
 

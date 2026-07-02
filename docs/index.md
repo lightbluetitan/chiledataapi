@@ -1,14 +1,5 @@
 # ChileDataAPI
 
-[![License: GPL
-v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/ChileDataAPI)](https://cran.r-project.org/package=ChileDataAPI)
-[![CRAN
-downloads](https://cranlogs.r-pkg.org/badges/ChileDataAPI)](https://cran.r-project.org/package=ChileDataAPI)
-[![CRAN total
-downloads](https://cranlogs.r-pkg.org/badges/grand-total/ChileDataAPI)](https://cran.r-project.org/package=ChileDataAPI)
-
 The `ChileDataAPI` package provides a unified interface to access open
 data from multiple public RESTful APIs, including the *FINDIC API*, the
 *World Bank API*, and *Nager.Date*. With a focus on Chile, the package
@@ -72,7 +63,7 @@ library(ChileDataAPI)
   Provides the exchange rate of the Japanese Yen in CLP.
 
 - [`get_chile_holidays()`](https://lightbluetitan.github.io/chiledataapi/reference/get_chile_holidays.md):
-  Get official public holidays in chile for a given year, e.g.,
+  Get official public holidays in Chile for a given year, e.g.,
   `get_chile_holidays(2025)`.
 
 - [`get_chile_child_mortality()`](https://lightbluetitan.github.io/chiledataapi/reference/get_chile_child_mortality.md):
