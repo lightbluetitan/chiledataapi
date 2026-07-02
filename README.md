@@ -1,6 +1,11 @@
 # ChileDataAPI
 
-The `ChileDataAPI` package provides a unified interface to access open data from multiple public RESTful APIs, including the *FINDIC API*, the *REST Countries API*, the *World Bank API*, and *Nager.Date*. With a focus on Chile, the package enables users to retrieve real-time or historical data such as financial indicators (**UF, UTM, Dollar, Euro, Yen, Copper price per pound, Bitcoin, IPSA index**), holidays, and international demographic and geopolitical information.  
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![CRAN status](https://www.r-pkg.org/badges/version/ChileDataAPI)](https://cran.r-project.org/package=ChileDataAPI)
+[![CRAN downloads](https://cranlogs.r-pkg.org/badges/ChileDataAPI)](https://cran.r-project.org/package=ChileDataAPI)
+[![CRAN total downloads](https://cranlogs.r-pkg.org/badges/grand-total/ChileDataAPI)](https://cran.r-project.org/package=ChileDataAPI)
+
+The `ChileDataAPI` package provides a unified interface to access open data from multiple public RESTful APIs, including the *FINDIC API*, the *World Bank API*, and *Nager.Date*. With a focus on Chile, the package enables users to retrieve real-time or historical data such as financial indicators (**UF, UTM, Dollar, Euro, Yen, Copper price per pound, Bitcoin, IPSA index**), and holidays.
 
 In addition to API-based data retrieval, `ChileDataAPI` includes a curated collection of datasets that cover diverse aspects of Chilean society and environment, such as human rights violations during the Pinochet regime, electoral data, census samples, health surveys, seismic events, territorial codes, and environmental measurements.  
 
@@ -42,8 +47,6 @@ library(ChileDataAPI)
 - `get_chile_utm()`: Returns monthly values of the Unidad Tributaria Mensual (UTM).
 
 - `get_chile_yen()`: Provides the exchange rate of the Japanese Yen in CLP.
-
-- `get_country_info_cl()`: Get essential information about Chile or any other country by its full name
 
 - `get_chile_holidays()`: Get official public holidays in chile for a given year, e.g., `get_chile_holidays(2025)`. 
 
@@ -100,10 +103,6 @@ measured in millimeters, for Araucaria Araucana trees located in the Malleco reg
 # Load the package
 
 library(ChileDataAPI)
-
-# Selected, essential information about Chile
-
-get_country_info_cl()
 
 # Provides the exchange rate of the U.S. Dollar in CLP
 

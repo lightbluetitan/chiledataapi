@@ -1,3 +1,25 @@
+# ChileDataAPI 0.3.0
+
+## Breaking Changes
+
+- **Removed `get_country_info_cl()`** from the package. This function depended on the
+  'REST Countries' API v3.1 endpoint, which was deprecated by its provider. The
+  replacement v5 endpoint now requires an API key, which is incompatible with CRAN's
+  policy that packages using Internet resources must work without user-supplied
+  credentials. As a consequence, all associated tests, documentation, and examples
+  have been removed, and references to the 'REST Countries API' have been removed
+  from the package (`DESCRIPTION`, `README.md`, vignette, `LICENSE.md`).
+
+- The package now integrates **three** APIs instead of four: **FINDIC API**,
+  **World Bank API**, and **Nager.Date**.
+
+## Notes
+
+- Updated copyright year to 2025-2026 across license files.
+
+
+---
+
 # ChileDataAPI 0.2.0
 
 ## Breaking Changes
